@@ -1,0 +1,7 @@
+node_modules/
+.env
+*.log
+app/data/generated/
+app/data/orders.jsonl
+app/logs/
+.vscode/
