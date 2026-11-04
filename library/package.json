@@ -1,3 +1,10 @@
 {
-    "type": "module"
+    "name": "minishop-utils",
+    "version": "1.0.0",
+    "description": "Utility functions for MiniShop",
+    "type": "module",
+    "main": "index.js",
+    "exports": "./index.js",
+    "author": "Roman Bychenko",
+    "license": "MIT"
 }
