@@ -1,9 +1,11 @@
-import { counter, orderGenerator } from "../generator.js";
-import { consumeFor } from "../iterator.js";
+import {
+    counter,
+    orderGenerator,
+    consumeFor
+} from "minishop-utils";
 
 console.log("Lab 1 - Generators and Iterators");
 
-// Перевірка звичайного генератора
 const numbers = counter(1);
 
 console.log("\nCounter:");
@@ -12,7 +14,6 @@ for (let i = 0; i < 5; i++) {
     console.log(numbers.next().value);
 }
 
-// Генеруємо замовлення протягом двох секунд
 console.log("\nGenerated orders:");
 
 const orders = orderGenerator();
