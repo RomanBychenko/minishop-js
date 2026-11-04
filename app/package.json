@@ -1,0 +1,16 @@
+{
+    "name": "minishop",
+    "version": "1.0.0",
+    "description": "Simple online shop",
+    "type": "module",
+    "private": true,
+    "author": "Roman Bychenko",
+    "license": "MIT",
+    "scripts": {
+        "lab1": "node examples/lab-01.js",
+        "lab2": "node examples/lab-01.js"
+    },
+    "dependencies": {
+        "minishop-utils": "file:../library"
+    }
+}
