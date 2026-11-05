@@ -8,7 +8,8 @@
     "license": "MIT",
     "scripts": {
         "lab1": "node examples/lab-01.js",
-        "lab2": "node examples/lab-01.js"
+        "lab2": "node examples/lab-01.js",
+        "lab3": "node examples/lab-03.js"
     },
     "dependencies": {
         "minishop-utils": "file:../library"
