@@ -22,7 +22,7 @@ npm --prefix app install
 
 ## Лабораторні роботи
 
-### Лабораторна №1 — Generators and Iterators
+### Lab 1 — Generators and Iterators
 
 Створено нескінченний генератор чисел та генератор тестових замовлень. Також реалізовано функцію, яка отримує значення з ітератора протягом заданого часу.
 
@@ -32,7 +32,7 @@ npm --prefix app install
 npm --prefix app run lab1
 ```
 
-### Лабораторна №2 — Project Setup
+### Lab 2 — Project Setup
 
 Проєкт розділено на бібліотеку та основну програму. Бібліотека підключається через локальну залежність у package.json.
 
@@ -41,3 +41,26 @@ npm --prefix app run lab1
 ```bash
 npm --prefix app run lab2
 ```
+
+### Lab 3 — Memoization
+
+У файлі memoize.js реалізовано кешування результатів
+функцій. У cachePolicies.js знаходяться стратегії
+очищення кешу: LRU, LFU, TTL та CUSTOM.
+
+У pricing.js мемоізація використовується для
+розрахунку вартості замовлення та доставки.
+
+Запуск: npm --prefix app run lab3
+
+### Lab 4 — Priority Queue
+
+У файлі priorityQueue.js реалізовано чергу з
+пріоритетами. Елементи можна отримувати за
+найвищим або найнижчим пріоритетом, а також
+у порядку FIFO та LIFO.
+
+У orderQueue.js черга використовується для
+збереження та отримання замовлень магазину.
+
+Запуск: npm --prefix app run lab4
