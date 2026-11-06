@@ -68,5 +68,29 @@ function asyncMapCallback(items, mapper, callback, options = {}) {
 
     queueMicrotask(next);
 }
+// Promise-версія використовує логіку callback-версії
+function asyncMapPromise(items, mapper, options = {}) {
+    return new Promise((resolve, reject) => {
+        asyncMapCallback(
+            items,
+            (item, index, done, signal) => {
+                Promise.resolve()
+                    .then(() => mapper(item, index, signal))
+                    .then(
+                        (value) => done(null, value),
+                        (error) => done(error)
+                    );
+            },
+            (error, results) => {
+                if (error) {
+                    reject(error);
+                } else {
+                    resolve(results);
+                }
+            },
+            options
+        );
+    });
+}
 
-export { asyncMapCallback };
+export { asyncMapCallback, asyncMapPromise };
