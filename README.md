@@ -64,3 +64,29 @@ npm --prefix app run lab2
 збереження та отримання замовлень магазину.
 
 Запуск: npm --prefix app run lab4
+
+### Lab 5 — Async Array
+
+У файлі asyncMap.js реалізовано асинхронну
+версію функції map через callback та Promise.
+Також додано можливість скасування операції
+через AbortController.
+
+У orderProcessing.js ці функції використовуються
+для асинхронної обробки замовлень.
+
+Запуск: npm --prefix app run lab5
+
+### Lab 6 — Large Data Processing
+
+У файлі streams.js реалізовано генерацію,
+читання та обробку великих JSONL-файлів
+за допомогою Streams та Async Iterators.
+
+У orderImport.js ці функції використовуються
+для імпорту замовлень магазину.
+
+Приклад обробляє 100000 замовлень без
+завантаження всього файлу в оперативну пам'ять.
+
+Запуск: npm --prefix app run lab6
