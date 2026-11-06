@@ -3,3 +3,8 @@ export { consumeFor } from "./iterator.js";
 export { memoize } from "./memoize.js";
 export { PriorityQueue } from "./priorityQueue.js";
 export { asyncMapCallback, asyncMapPromise } from "./asyncMap.js";
+export {
+    generateOrderFile,
+    readOrderLines,
+    processOrderFile
+} from "./streams.js";
