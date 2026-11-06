@@ -8,3 +8,4 @@ export {
     readOrderLines,
     processOrderFile
 } from "./streams.js";
+export { EventBus } from "./events.js";
