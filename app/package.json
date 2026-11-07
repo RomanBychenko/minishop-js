@@ -14,7 +14,8 @@
         "lab5": "node examples/lab-05.js",
         "lab6": "node examples/lab-06.js",
         "lab7": "node examples/lab-07.js",
-        "lab8": "node examples/lab-08.js"
+        "lab8": "node examples/lab-08.js",
+        "lab9": "node examples/lab-09.js"
     },
     "dependencies": {
         "minishop-utils": "file:../library"
