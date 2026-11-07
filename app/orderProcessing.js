@@ -8,7 +8,6 @@ async function processSingleOrder(order, signal) {
         throw new Error("Invalid order quantity");
     }
 
-    // Імітуємо час, необхідний для обробки
     await delay(300, undefined, { signal });
 
     return {
@@ -19,16 +18,21 @@ async function processSingleOrder(order, signal) {
 
 const processOrder = logFunction(processSingleOrder);
 
-// Асинхронна обробка масиву замовлень
 async function processOrders(orders, options = {}) {
-    const { signal, onProcessed = () => {} } = options;
+    const {
+        signal,
+        onProcessed = () => {},
+        handler = processOrder
+    } = options;
 
     return asyncMapPromise(
         orders,
         async (order, index, signal) => {
-            const result = await processOrder(order, signal);
+            const result = await handler(order, signal);
 
-            onProcessed(result);
+            // Не змінюємо стан після скасування операції
+            signal?.throwIfAborted();
+            await onProcessed(result);
 
             return result;
         },
