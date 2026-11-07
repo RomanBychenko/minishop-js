@@ -10,3 +10,4 @@ export {
 } from "./streams.js";
 export { EventBus } from "./events.js";
 export { AuthProxy } from "./authProxy.js";
+export { withLogging } from "./logger.js";
