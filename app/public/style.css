@@ -1,0 +1,76 @@
+:root {
+    font-family: Arial, sans-serif;
+    color: #202b3a;
+    background: #f4f6f9;
+    font-size: 15px;
+    scroll-behavior: smooth;
+}
+* { box-sizing: border-box; }
+body { margin: 0; }
+.wrap { max-width: 1150px; margin: auto; padding: 0 22px; }
+header { background: #fff; border-bottom: 1px solid #e0e5eb; }
+.header-inner, .between { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+.header-inner { min-height: 68px; flex-wrap: wrap; }
+.brand { color: #234bb3; font-size: 24px; font-weight: bold; text-decoration: none; }
+.brand small { color: #778396; font-size: 13px; font-weight: normal; }
+nav { display: flex; gap: 20px; flex-wrap: wrap; }
+nav a { color: #42536c; text-decoration: none; font-size: 14px; }
+nav a:hover { color: #245ad2; }
+.intro { display: flex; align-items: center; justify-content: space-between; gap: 15px; padding: 30px 0 5px; }
+.eyebrow { color: #345bb8; font-size: 11px; letter-spacing: 1px; font-weight: bold; }
+h1 { font-size: 32px; margin: 5px 0 8px; }
+h2 { font-size: 22px; margin: 0 0 16px; }
+h3 { font-size: 17px; margin: 0 0 15px; }
+p { line-height: 1.5; }
+section { margin: 28px 0; scroll-margin-top: 15px; }
+.tag { display: inline-block; border-radius: 20px; background: #e8eef9; color: #234bb3; padding: 5px 10px; font-size: 12px; white-space: nowrap; }
+.panel, .product { background: white; border: 1px solid #e0e5eb; border-radius: 10px; padding: 18px; }
+.catalog-layout { display: grid; grid-template-columns: 2fr 1fr; gap: 16px; align-items: start; }
+.products { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+.product { padding: 13px; }
+.product-icon { height: 90px; display: grid; place-items: center; background: #eef2f7; border-radius: 6px; font-size: 40px; }
+.product h3 { margin: 13px 0 8px; }
+.product strong { display: block; margin-bottom: 12px; }
+button, select, input { font: inherit; border-radius: 6px; padding: 9px 11px; }
+button { border: 0; background: #2856bd; color: white; cursor: pointer; }
+button:hover:not(:disabled) { filter: brightness(.93); }
+button:disabled { opacity: .5; cursor: not-allowed; }
+button.secondary { background: #e8edf5; color: #2f415b; }
+button.danger { background: #b83e42; }
+select, input { border: 1px solid #d8dfe8; background: white; color: #243247; max-width: 100%; }
+.product button, .cart > button, .cart > select { width: 100%; }
+.cart > select { margin: 6px 0 12px; }
+.cart-line { display: flex; justify-content: space-between; align-items: center; gap: 10px; padding: 10px 0; border-bottom: 1px solid #e5e9ef; }
+.cart-line button { padding: 5px 9px; margin-left: 4px; }
+.cart-total { display: flex; justify-content: space-between; gap: 10px; margin: 18px 0; }
+.muted { font-size: 13px; color: #637086; }
+.stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-bottom: 12px; }
+.stats span { color: #637086; font-size: 13px; }
+.stats strong { display: block; font-size: 27px; margin-top: 8px; }
+.controls { display: flex; gap: 12px; align-items: end; flex-wrap: wrap; }
+.controls label { display: flex; flex-direction: column; gap: 5px; font-size: 13px; color: #46546a; }
+.controls input[type="number"] { width: 110px; }
+.scroll { overflow-x: auto; }
+table { width: 100%; border-collapse: collapse; text-align: left; font-size: 14px; }
+th, td { padding: 11px 8px; border-bottom: 1px solid #e8ecf2; }
+th { color: #53647a; font-size: 12px; background: #f7f9fc; }
+.history { margin-top: 12px; }
+.two-columns { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+pre { background: #f0f3f7; padding: 12px; white-space: pre-wrap; overflow-wrap: anywhere; border-radius: 6px; font-size: 12px; line-height: 1.6; }
+.entries { max-height: 240px; overflow: auto; font-size: 13px; }
+.entries p { border-bottom: 1px solid #e8ecf2; padding: 7px 0; margin: 0; }
+.log-output { background: #222c3d; color: #e4ebf5; max-height: 350px; overflow: auto; }
+#message { min-height: 20px; color: #1c704c; margin: 5px 0; }
+#message.error { color: #b32330; }
+footer.wrap { padding-top: 15px; padding-bottom: 30px; color: #6e7a8d; font-size: 13px; }
+@media (max-width: 850px) {
+    .catalog-layout { grid-template-columns: 1fr; }
+    .stats { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 550px) {
+    .wrap { padding: 0 12px; }
+    .products { grid-template-columns: repeat(2, 1fr); }
+    .two-columns { grid-template-columns: 1fr; }
+    h1 { font-size: 25px; }
+    nav { gap: 10px; padding-bottom: 12px; }
+}

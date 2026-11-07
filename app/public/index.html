@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>MiniShop</title>
+    <link rel="stylesheet" href="/style.css">
+    <script src="/app.js" defer></script>
+</head>
+<body>
+    <header>
+        <div class="wrap header-inner">
+            <a class="brand" href="#catalog">MiniShop <small> / electronics</small></a>
+            <nav>
+                <a href="#catalog">Каталог</a>
+                <a href="#orders">Замовлення</a>
+                <a href="#import">Імпорт</a>
+                <a href="#logs">Журнал</a>
+            </nav>
+        </div>
+    </header>
+    <main class="wrap">
+        <div class="intro">
+            <div><p class="eyebrow">НАВЧАЛЬНИЙ ПРОЄКТ</p><h1>Магазин електроніки</h1>
+            <p>Обирай товари та керуй обробкою замовлень.</p></div>
+            <span id="server-status" class="tag">Підключення...</span>
+        </div>
+        <p id="message" role="status" aria-live="polite"></p>
+        <section id="catalog">
+            <h2>Каталог</h2>
+            <div class="catalog-layout">
+                <div id="products" class="products"></div>
+                <aside class="panel cart">
+                    <h3>Кошик <span id="cart-count" class="tag">0</span></h3>
+                    <div id="cart-items"></div>
+                    <p class="muted">Знижка 10% від трьох одиниць одного товару. Доставка — 100 грн, від 5000 грн безкоштовна.</p>
+                    <div class="cart-total"><span>Разом з доставкою</span><strong id="cart-total">0 грн</strong></div>
+                    <label for="priority">Пріоритет</label>
+                    <select id="priority"><option value="1">Низький</option><option value="2" selected>Звичайний</option><option value="3">Високий</option></select>
+                    <button id="checkout">Оформити замовлення</button>
+                </aside>
+            </div>
+        </section>
+        <section id="orders">
+            <h2>Управління замовленнями</h2>
+            <div class="stats">
+                <div class="panel"><span>Створено</span><strong id="created">0</strong></div>
+                <div class="panel"><span>У черзі</span><strong id="queued">0</strong></div>
+                <div class="panel"><span>Завершено</span><strong id="completed">0</strong></div>
+                <div class="panel"><span>Помилки / скасування*</span><strong id="failed">0 / 0</strong></div>
+            </div>
+            <div class="panel">
+                <div class="controls">
+                    <label>Генерація, сек.<input id="seconds" type="number" value="2" min="1" max="10"></label>
+                    <button id="generate">Генерувати</button>
+                    <label>Порядок черги<select id="mode"><option value="highest">Найвищий пріоритет</option><option value="lowest">Найнижчий пріоритет</option><option value="oldest">FIFO</option><option value="newest">LIFO</option></select></label>
+                    <label>Авторизація<select id="auth"><option value="API_KEY">API Key</option><option value="JWT">JWT</option><option value="OAUTH">OAuth</option></select></label>
+                    <label>Кількість<input id="batch" type="number" value="5" min="1" max="100"></label>
+                    <button id="process">Обробити</button>
+                    <button id="cancel" class="danger" disabled>Скасувати</button>
+                </div>
+                <p id="next-order" class="muted"></p>
+                <div class="scroll"><table><thead><tr><th>Номер</th><th>Товари</th><th>Пріоритет</th><th>Сума</th><th>Статус</th></tr></thead><tbody id="queue"></tbody></table></div>
+                <p class="muted">* Скасування перериває обробку; незавершені замовлення залишаються у черзі.</p>
+            </div>
+            <div class="panel history"><h3>Історія обробки</h3><div class="scroll"><table><thead><tr><th>Номер</th><th>Товари</th><th>Сума</th><th>Статус</th><th>Авторизація</th></tr></thead><tbody id="history"></tbody></table></div></div>
+        </section>
+        <section id="import">
+            <h2>Імпорт великих файлів</h2>
+            <div class="panel">
+                <p>Генерація та обробка JSONL через потоки. Результати записуються у файл, а не додаються у звичайну чергу.</p>
+                <div class="controls">
+                    <label>Кількість записів<input id="import-count" type="number" value="100000" min="1" max="1000000"></label>
+                    <button id="import-demo">Тестовий імпорт</button>
+                    <label>Власний JSONL<input id="file" type="file" accept=".jsonl,.ndjson,.txt"></label>
+                    <button id="import-file" class="secondary">Імпортувати файл</button>
+                </div>
+                <pre id="import-result">Імпорт ще не виконувався.</pre>
+            </div>
+        </section>
+        <section id="logs">
+            <h2>Статистика та журнал</h2>
+            <div class="two-columns">
+                <div class="panel"><h3>Кеш розрахунків</h3><pre id="cache"></pre><h3>HTTP-запити до API</h3><div id="requests" class="entries"></div></div>
+                <div class="panel"><h3>Події магазину</h3><div id="notifications" class="entries"></div></div>
+            </div>
+            <div class="panel history"><div class="between"><h3>Журнал функцій</h3><button id="refresh-logs" class="secondary">Оновити</button></div><pre id="log-output" class="log-output">Журнал порожній.</pre></div>
+        </section>
+        <section class="panel lab-note"><h2>Лабораторні роботи</h2><p>Усі дев'ять лабораторних знаходяться в пакеті minishop-utils та прикладах app/examples. Команди запуску й опис модулів — у README.md.</p></section>
+    </main>
+    <footer class="wrap">MiniShop — Roman Bychenko, 2026</footer>
+</body>
+</html>
