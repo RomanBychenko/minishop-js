@@ -1,8 +1,9 @@
 import { asyncMapPromise } from "minishop-utils";
 import { setTimeout as delay } from "node:timers/promises";
+import { logFunction } from "./shopLogger.js";
 
 // Обробка окремого замовлення
-async function processOrder(order, signal) {
+async function processSingleOrder(order, signal) {
     if (!Number.isInteger(order.quantity) || order.quantity <= 0) {
         throw new Error("Invalid order quantity");
     }
@@ -15,6 +16,8 @@ async function processOrder(order, signal) {
         status: "processed"
     };
 }
+
+const processOrder = logFunction(processSingleOrder);
 
 // Асинхронна обробка масиву замовлень
 async function processOrders(orders, options = {}) {
